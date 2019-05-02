@@ -1,27 +1,29 @@
 const db = require("../models");
 
+
+// Here we create a bunch of queries to hit our mongodb with.  .find, .findById, .create, .findOneAndUpdate, .findById are all mongoose methods and the findAll, findById, create... etc are names we create which are referenced by our api routes to make the appropriate calls. 
 module.exports = {
-  findAll: function(req, res) {
+  findAll: function (req, res) {
     db.Book.find(req.query)
       .then(dbBook => res.json(dbBook))
       .catch(err => res.status(422).json(err));
   },
-  findById: function(req, res) {
+  findById: function (req, res) {
     db.Book.findById(req.params.id)
       .then(dbBook => res.json(dbBook))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
+  create: function (req, res) {
     db.Book.create(req.body)
       .then(dbBook => res.json(dbBook))
       .catch(err => res.status(422).json(err));
   },
-  update: function(req, res) {
+  update: function (req, res) {
     db.Book.findOneAndUpdate({ id: req.params.id }, req.body)
       .then(dbBook => res.json(dbBook))
       .catch(err => res.status(422).json(err));
   },
-  remove: function(req, res) {
+  remove: function (req, res) {
     db.Book.findById(req.params.id)
       .then(dbBook => dbBook.remove())
       .then(dbBook => res.json(dbBook))

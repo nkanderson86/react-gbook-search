@@ -1,6 +1,8 @@
+// bring in the mongoose package and set up a new instance of the Schema method to set up database
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// setting up a new schema to create a collection for our database
 const bookSchema = new Schema({
   title: { type: String, required: true },
   subtitle: { type: String },
@@ -11,6 +13,7 @@ const bookSchema = new Schema({
   googleId: { type: String, required: true, unique: true }
 });
 
+// creating new collection and setting it equal to a variable called Book which we export below.
 const Book = mongoose.model("Book", bookSchema);
 
 module.exports = Book;
