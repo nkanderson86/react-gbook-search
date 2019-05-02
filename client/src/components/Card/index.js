@@ -1,5 +1,6 @@
 import React from "react";
 
+// functional component takes in three props: icon, title, children.  Builds a card with the icon and title and puts the children props into the card body.
 function Card({ icon, title, children }) {
   return (
     <div className="card mt-4">

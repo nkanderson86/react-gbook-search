@@ -1,10 +1,13 @@
+// importing react, deconstructing ListItem from our List component and Row, Col from our Grid component
 import React from "react";
 import { ListItem } from "../List";
 import { Row, Col } from "../Grid";
 import "./style.css";
 
+// functional compoenent to create a book that takes in the 7 props listet inside the {} on line 8 
 function Book({ title, subtitle, authors, link, description, image, Button }) {
   return (
+    // this sets up the rendering of each of the props as a li 
     <ListItem>
       <Row className="flex-wrap-reverse">
         <Col size="md-8">
